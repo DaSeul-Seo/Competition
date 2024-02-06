@@ -31,3 +31,10 @@
 ### 📚 방법
 1. 각 데이터 삭제 및 새로운 컬럼 추가
 
+</br>
+<details>
+<summary>📚 파일 설명</summary>
+
+
+    
+</details>
