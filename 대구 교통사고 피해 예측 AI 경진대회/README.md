@@ -30,11 +30,65 @@
 
 ### 📚 방법
 1. 각 데이터 삭제 및 새로운 컬럼 추가
+2. Voting을 통한 최종 결과값 선정
+    - Soft Voting : 클래스 당 예측 확률(predict_proba의 리턴값)을 모든 모델로부터 받아와서, 해당 클래스 당 예측 확률 값을 평균 내어 가장 높은 확률을 갖는 클래스로 최종 예측을 하는 것
 
 </br>
 <details>
 <summary>📚 파일 설명</summary>
 
+0. DG_EDA
+    - 주소 시, 군, 구 나누기
+    - 각 컬럼 value_counts() 확인
+    - 날짜, 시간정보 생성
+    - 위치 정보 생성 (도시, 구, 군)
+    - 도로형태 정보 추출
+        > ex) '단일로 - 기타' </br>
+        > 도로형태1 : 단일로 </br>
+        > 도로형태2 : 기타 
 
-    
+1. DG_Analysis_V0
+    - 원본 데이터
+        - 결측치 처리
+        - EDA 컬럼분류 사용
+    - Model
+        - Decision Tree Regressor
+        - Decision Tree Classifier
+    - 부스팅
+        - XGBoost
+        - Light GBM
+        - Catboost
+        - RandomForest
+    - Encoder
+        - Label Encoder
+
+2. DG_Analysis_V1 & DG_Analysis_V2
+    - DG_Analysis_V0에서 Voting 적용
+    - 부스팅 Parameter 수정
+    - kfold 확인
+
+3. DG_Analysis_V3
+    - 추가 정보 확인
+        - '노면상태'와 '기상상태' 별 사고 발생 건수
+        - '노면상태'와 '기상상태' 별 전체 사고 건수
+        - 요일 사고 건수
+        - 시간대 별 사고 건수
+            - 0-6시, 6-12시, 12-18시, 18-24시
+        - 주말/평일과 시간대에 따른 사고 발생 비율 계산
+    - Encoder
+        - OneHotEncoder
+    - Model X
+    - 부스팅 Parameter 수정
+    - Voting
+
+4. DG_Analysis_V4
+    - 최종 제출 파일
+        - ['기상상태', '사고유형', '연', '월', 'holiday', '동', '도로형태1', '도로형태2', '시간대']
+        - Encoder
+            - Label Encoder
+        - 부스팅
+            - XGBoost
+            - Light GBM
+            - Catboost
+
 </details>
