@@ -37,7 +37,7 @@
     - feature & target 분리
     - 정답과 예측값의 유사도 측정
 
-2. DG_Analysis_V1 & DG_Analysis_V2
+2. hyul_star_final
     - 트랜스포머에서 BitsandBytesConfig를 통해 양자화 매개변수 정의
     - 경량화 모델 로드
     - RAG 시스템 결합
